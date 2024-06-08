@@ -1,0 +1,47 @@
+aside{
+    // border: 1px solid  red;
+    margin: 10px;
+    background: $card-background;
+    padding: 20px 15px; //*yukarıdan aşağıdan 20px sağdan soldan 15px*/
+    border-radius: $radius;
+    display: flex;
+    justify-content: center;
+    height: 97vh; //* ile sol taraftaki aside yukarıdan aşağı uzatıyoruz
+    figure{
+        .no-text{
+            display: none; //*büyük spotfy logosunu kaldırdık küçük ekran için.
+            @include ipad{
+                display: block; //* spotfy text yazsınız burada ipad ekranında gösteriyoruz
+                width: 40px;
+            }
+        }
+    }
+    img{
+        max-width: 130px;
+        cursor: pointer;
+        @include ipad{ //*include ile mixinden ipad çekiyoruz*/
+            display: none; //* küçük ekranda spotfy text yazısını yok ediyoruz*/
+        }
+    }
+    nav{
+        display: flex;
+        flex-direction: column; //*alt alta al */
+        gap: 30px; //* aralarındaki mesafeyi aç*/
+        margin-top: 30px;
+        a{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            i{
+                @include ipad{ //*ipad'de font size büyüsün
+                    font-size: 25px;
+                }
+            }
+            span{
+                @include ipad{ //* ipadlerde yazılar gözükmesin
+                    display: none;
+                }
+            }
+        }
+    }
+}

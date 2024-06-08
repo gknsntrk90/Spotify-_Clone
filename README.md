@@ -1,9 +1,3 @@
-# Ekran Vİdeosu;![Screen Recording 2024-06-08 at 08 16 46 57 PM](https://github.com/gknsntrk90/Spotify-_Clone/assets/133425361/0fcf8111-125a-4b35-935e-9eee932323ea)
-
-
-
-
-
 1.Adım:
 - Sidebar kısmının HTML'ini ve CSS'ini yap.
 2.Adım:

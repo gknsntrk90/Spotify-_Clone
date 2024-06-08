@@ -1,0 +1,141 @@
+main{
+    background: $card-background;
+    width: 100%; //*kapsayıcısı kadar yer alsın*/
+    margin: 10px; //*dış boşluk*/
+    border-radius: $radius;
+
+    header{
+        form{
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px; //* yukarıdan aşağı 15 sağdan soldan 30px*/
+            background: $color;
+            margin: 10px;
+            gap: 40px;
+            border-radius: $radius;
+            #menu{
+                display: none; //*menu butonunu gizliyoruz*/
+            }
+            .search-input{
+                position: relative;  //*içerisindeki yapıda absulate kullanabilmek için*/
+                input{
+                    background: black;
+                    outline: none;
+                    border: none;
+                    color: #fff;
+                    width: 500px;
+                    max-width: 500px;
+                    padding: 15px 20px;
+                    border-radius: $radius;
+                    @include laptop{ //*küçük ekranda genişlik
+                        width: 250px;
+                    }
+                    @include ipad-pro{
+                        width: 300px;
+                    }
+                    &:focus{ //*mouse ile focuslama yapınca
+                        box-shadow: 0 0 10px rgb(56, 56, 56); //*inputa hafif gölge veriyoruz tıklanılınca
+                    }
+                }
+                i{
+                    position: absolute;
+                    right: 15px;
+                    top: 10px;
+                    z-index: 100; //*önplanda olsun arkada kalmasın hiç
+                }
+            }
+            ul{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 40px;
+                @include ipad{ //*ipad ekranında görünmesin sadece ekran büyünce gelecek
+                    display: none;
+                }
+                :nth-child(4){ //* bu kod ile ul'nin 4. çocuğunu seçiyoruz*/
+                    background-color: $spotify-color;
+                    padding: 8px;
+                    border-radius: $radius;
+                    color: black !important; //*yazı rengi siyahta kalsın*/
+                    transition: all 0.3s;
+                    &:hover{
+                        background: #159845;
+                        scale: 0.98; //*mouse gelince küçülüp büyüyor*/
+                    }
+                }
+                li{
+                    cursor: pointer;
+                    font-size: 15px;
+                    letter-spacing: 1.7px;
+                    color: $text;
+                    transition: all 0.3s;
+                    &:hover{
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .songs{
+        h2{
+            padding: 20px;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+        .list{
+            display: flex;
+            flex-wrap: wrap; //*taşma olursa bir alt satıra atsın*/
+            gap: 20px;
+            padding: 20px;
+            .card{
+                width: 200px;
+                background: #121212;
+                padding: 20px;
+                border-radius: $radius;
+                margin: 10px; /*auto*/
+                opacity: 0.7; //*görseli biraz soldurduk*/
+                cursor: pointer;
+                transition: all 0.3s;
+                h4{
+                    margin-bottom: 6px;
+                }
+                &:hover{
+                    opacity: 1; //*mouse üzerine gelince resim rengi parlasın*/
+                }
+                &:hover .play{
+                    bottom: 20px;
+                    opacity: 1;
+                }
+                figure{
+                    //*relative veriyoruz ki .play'de sign'nımızı rahat hareket ettirebilielim
+                    position: relative;
+                    img {
+                        width: 100%;
+                        border-radius: $radius;
+                        margin-bottom: 10px;
+                    };
+                    .play{
+                        background: $spotify-color;
+                        width: 40px;
+                        height: 40px;
+                        display: grid; //* grid kullanarak place-item alıştıracağız*/
+                        place-items: center; //*play sign'nını ortalıyoruz*/
+                        position: absolute;
+                        right: 10px;
+                        bottom: -20px;
+                        border-radius: 50%;
+                        opacity: 0; //*başlanıçta görünmesin*/
+                        transition: all 0.4s;
+                        &:hover{
+                            scale: 1.2; //*play buttunu büyüyor mouse gelince üzerine*/
+                            background: #159845;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
